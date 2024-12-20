@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+    {% load static %}
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid" style="background-color: #87CEFA; height: 80px;" >
+          <img src="{% static "imagenes/minimarket.png"%}" alt="No Encontrada" style="width: 80px; height:80px; "/>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" style="margin-right: 650px;"><b>MINIMARKET LOLITA</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/form" style="margin-right: 20px;" >Registrarse</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div>
+        <div class="card container" style="width: 50%;margin-bottom: 20px;">
+          {% if r %}    
+
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Felicidades!!</strong> {{r}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+          {% endif %}
+
+          {% if r2 %}    
+
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>ERROR!!</strong> {{r2}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+          {% endif %}
+            <center><img src="{% static "imagenes/minimarket.png"%}" alt="No Encontrada" style="width: 300px; height:300px; "/></center>
+            <div class="card-body">
+              <form action="/login" method="post">
+                {% csrf_token %}
+                <input class="form-control form-control-lg text-center mb-2" type="text"     placeholder="Correo del Usuario"  name="txtema"  required/>
+                <input class="form-control form-control-lg text-center mb-2" type="password" placeholder="Contraseña"         name="txtpas"  required/>
+                <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Login</button>
+              </form>
+            </div>
+          </div>
+      </div>
+
+
+  
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+</body>
+</html>
